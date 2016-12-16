@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import '!file?name=[name].[ext]!./manifest.json'; // eslint-disable-line import/extensions
 import 'file?name=[name].[ext]!./.htaccess'; // eslint-disable-line import/extensions
 import 'sanitize.css/sanitize.css';
+import 'rxjs';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

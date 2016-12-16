@@ -13,9 +13,9 @@ const routeReducer = handleActions({
   }),
 }, routeInitialState);
 
-const createReducer = (asyncReducers) => combineReducers({
+const createReducers = (asyncReducers) => combineReducers({
   route: routeReducer,
   ...asyncReducers,
 });
 
-export default createReducer;
+export default createReducers;

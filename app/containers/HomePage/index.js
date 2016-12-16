@@ -10,13 +10,36 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCounter } from './selectors';
+import { doIncrement, doDecrement } from './actions';
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    onIncrement: React.PropTypes.func,
+    onDecrement: React.PropTypes.func,
+    counter: React.PropTypes.number,
+  }
+
   render() {
     return (
-      <h1>
-        Hello World!
-      </h1>
+      <div>
+        <h1>Counter: {this.props.counter}</h1>
+        <button onClick={(e) => { e.preventDefault(); this.props.onIncrement(); }}>Increment</button>
+        <button onClick={(e) => { e.preventDefault(); this.props.onDecrement(); }}>Decrement</button>
+      </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  onIncrement: () => dispatch(doIncrement(1)),
+  onDecrement: () => dispatch(doDecrement(1)),
+});
+
+const mapStateToProps = createStructuredSelector({
+  counter: selectCounter(),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
