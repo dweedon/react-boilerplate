@@ -1,4 +1,4 @@
-  {
+{
   "name": "react-boilerplate",
   "version": "3.3.3",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
@@ -203,7 +203,9 @@
     "react-router-redux": "4.0.6",
     "react-router-scroll": "0.3.3",
     "redux": "3.6.0",
+    "redux-actions": "^1.2.0",
     "redux-immutable": "3.0.8",
+    "redux-observable": "^0.12.2",
     "redux-saga": "0.12.0",
     "reselect": "2.5.4",
     "sanitize.css": "4.1.0",
